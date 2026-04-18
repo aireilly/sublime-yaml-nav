@@ -1,3 +1,9 @@
+# 1.5.0
+- Fixed TypeError in on_new event handler;
+- Replaced deprecated set_syntax_file with assign_syntax for Sublime Text 4 compatibility;
+- Added proper plugin_unloaded cleanup to stop worker thread on plugin reload;
+- Removed Sublime Text 2 and Python 2 compatibility code;
+
 # 1.4.0
 - Automatically trim colons in keys if trim_leading_colon = true;
 

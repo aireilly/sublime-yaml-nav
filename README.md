@@ -1,6 +1,6 @@
 # YAML Nav
 
-Sublime Text 2/3 plugin for quick navigation in YAML files.
+Sublime Text plugin for quick navigation in YAML files. Requires Sublime Text 4 or later.
 
 ![screenshot](screenshot.png)
 
@@ -14,7 +14,7 @@ Open the palette (Control+Shift+P or Command+Shift+P) in Sublime Text and select
 
 ### Manually
 
- * cd <YOUR PACKAGES DIRECTORY> (eg. ~/Library/Application\ Support/Sublime\ Text\ 3/Packages)
+ * cd <YOUR PACKAGES DIRECTORY> (eg. ~/Library/Application\ Support/Sublime\ Text/Packages)
  * git clone http://github.com/ddiachkov/sublime-yaml-nav
 
 ## Key bindings
