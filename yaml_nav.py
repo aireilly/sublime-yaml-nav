@@ -7,14 +7,7 @@ import sublime_plugin
 import re
 import time
 
-try:
-    from . import yaml_math, view_data, worker, utils
-except:
-    # ST2
-    import yaml_math
-    import view_data
-    import worker
-    import utils
+from . import yaml_math, view_data, worker, utils
 
 
 # Status key for sublime status bar
@@ -25,6 +18,10 @@ SETTINGS_FILE = "YAML Nav.sublime-settings"
 
 # Delay in seconds after which symbols will be updated on buffer modification
 UPDATE_SYMBOLS_DELAY = 0.4
+
+
+def plugin_unloaded():
+    worker.stop()
 
 
 def set_status(view, message):
@@ -68,13 +65,13 @@ class YamlNavListener(sublime_plugin.EventListener):
     def on_load(self, view):
         if is_yaml_view(view):
             # Force our custom syntax
-            view.set_syntax_file("Packages/YAML Nav/YAML-ng.sublime-syntax")
+            view.assign_syntax("Packages/YAML Nav/YAML-ng.sublime-syntax")
 
             # Build list after file load
             self.update_yaml_symbols(view)
 
     def on_new(self, view):
-        self.on_load(self, view)
+        self.on_load(view)
 
     def on_activated(self, view):
         if is_yaml_view(view):

@@ -2,11 +2,7 @@
 Module for executing tasks in separate thread.
 """
 
-try:
-    from queue import Queue
-except:
-    # ST2, Python 2
-    from Queue import Queue
+from queue import Queue
 
 import threading
 import traceback
@@ -77,14 +73,9 @@ def execute(callback):
     __worker.execute(callback)
 
 
-def unload_handler():
-    """
-    Sublime will call this function on plugin reload.
-    """
-
+def stop():
     global __worker
 
-    # Stop the worker
     if __worker:
         __worker.stop()
         __worker = None
